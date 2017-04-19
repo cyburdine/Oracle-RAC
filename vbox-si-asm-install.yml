@@ -1,0 +1,27 @@
+---
+
+
+ - name: Host configuration
+   hosts: vbox-si-asm
+   user: vagrant
+   become: yes
+   roles:
+      - common
+      - orahost
+      - orahost-storage
+
+ - name: Oracle Grid Infrastructure installation & ASM Configuration
+   hosts: vbox-si-asm
+   user: vagrant
+   become: yes
+   roles:
+      - oraswgi-install
+      - oraasm-createdg
+
+ - name: Database Server Installation & Database Creation
+   hosts: vbox-si-asm
+   user: vagrant
+   become: yes
+   roles:
+      - oraswdb-install
+      - oradb-create
